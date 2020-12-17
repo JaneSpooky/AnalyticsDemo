@@ -26,13 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initClick() {
         button0.setOnClickListener {
-            sendEventHelper.sendSignUpEvent()
-            FirebaseAnalytics.getInstance(this).logEvent("login") {
-                param(FirebaseAnalytics.Param.ITEM_ID, 1)
-            }
+            sendEventHelper.sendSignUpEvent("mail")
         }
         button1.setOnClickListener {
-            sendEventHelper.sendLoginEvent()
+            sendEventHelper.sendLoginEvent("twitter")
         }
         button2.setOnClickListener {
             sendEventHelper.sendShareEvent("Twitter")

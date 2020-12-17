@@ -13,12 +13,18 @@ class SendEventHelper(private val context: Context) {
         sendEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle)
     }
 
-    fun sendSignUpEvent() {
-        sendEvent(FirebaseAnalytics.Event.SIGN_UP)
+    fun sendSignUpEvent(method: String) {
+        val bundle = Bundle().apply {
+            putString(FirebaseAnalytics.Param.METHOD, method)
+        }
+        sendEvent(FirebaseAnalytics.Event.SIGN_UP, bundle)
     }
 
-    fun sendLoginEvent() {
-        sendEvent(FirebaseAnalytics.Event.LOGIN)
+    fun sendLoginEvent(method: String) {
+        val bundle = Bundle().apply {
+            putString(FirebaseAnalytics.Param.METHOD, method)
+        }
+        sendEvent(FirebaseAnalytics.Event.LOGIN, bundle)
     }
 
     fun sendSelectItem(id: Int, name: String, type: String) {
